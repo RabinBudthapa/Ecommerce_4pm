@@ -65,7 +65,7 @@
             <div class="container-fluid">
                 <div class="brand-slider">
                           {% for brand in brands %}
-                    <div class="brand-item"><img src="{{brand.image.url}}" style = "height: 100px; width: 100px;" alt=""></div>
+                    <a href="/brand/{{brand.slug}}" <div class="brand-item"><img src="{{brand.image.url}}" style="height:100px;width:50px"; alt=""></div>> </a>
                           {% endfor %}
                 </div>
             </div>
@@ -121,50 +121,78 @@
         <div class="category">
             <div class="container-fluid">
                 <div class="row">
+
+                    <div class="col-md-3">
+                        {% for ad in ads %}
+                    {% if ad.rank == 1%}
+                        <div class="category-item ch-400">
+                            <img src="{{ad.image.url}}" />
+                            <a class="category-name" href="">
+                                <p>{{ad.description}}</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div class="col-md-3">
+                        {% for ad in ads %}
+                        {% if ad.rank == 2 %}
+                        <div class="category-item ch-250">
+                            <img src="{{ad.image.url}}" />
+                            <a class="category-name" href="">
+                                <p>{{ad.description}}</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                         {% endfor %}
+                         {% for ad in ads %}
+                        {% if ad.rank == 3 %}
+                        <div class="category-item ch-150">
+                            <img src="{{ad.image.url}}" />
+                            <a class="category-name" href="">
+                                <p>Some text goes here that describes the image</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-3">
+                        {% for ad in ads %}
+                        {% if ad.rank == 4 %}
+                        <div class="category-item ch-150">
+                            <img src="{{ad.image.url}}" />
+                            <a class="category-name" href="">
+                                <p>Some text goes here that describes the image</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                         {% for ad in ads %}
+                        {% if ad.rank == 5 %}
+                        <div class="category-item ch-250">
+                            <img src="{{ad.image.url}}" />
+                            <a class="category-name" href="">
+                                <p>Some text goes here that describes the image</p>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+
+
+                    {% for ad in ads %}
+                    {% if ad.rank == 6 %}
                     <div class="col-md-3">
                         <div class="category-item ch-400">
-                            <img src="img/category-3.jpg" />
+                            <img src="{{ad.image.url}}" />
                             <a class="category-name" href="">
                                 <p>Some text goes here that describes the image</p>
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="category-item ch-250">
-                            <img src="img/category-4.jpg" />
-                            <a class="category-name" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                        <div class="category-item ch-150">
-                            <img src="img/category-5.jpg" />
-                            <a class="category-name" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="category-item ch-150">
-                            <img src="img/category-6.jpg" />
-                            <a class="category-name" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                        <div class="category-item ch-250">
-                            <img src="img/category-7.jpg" />
-                            <a class="category-name" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="category-item ch-400">
-                            <img src="img/category-8.jpg" />
-                            <a class="category-name" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -196,7 +224,7 @@
                     <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">{{hot.name}}</a>
+                                <a href="/product/{{hot.slug}}">{{hot.name}}</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -260,7 +288,7 @@
                     <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">{{new.name}}</a>
+                                <a href="/product/{{new.slug}}">{{new.name}}</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
