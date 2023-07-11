@@ -24,6 +24,7 @@ import home
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',include('home.urls')),
+    path('account/',include('django.contrib.auth.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
